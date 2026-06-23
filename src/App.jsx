@@ -155,21 +155,21 @@ export default function App() {
             icon={Layers} 
             title="Custom Booking Platforms" 
             description="Hour-precise calendars built with robust database exclusion rules to completely block multi-tenant scheduling collisions."
-            delay={0.2} // First card reveals instantly
+            delay={0.15} // First card reveals instantly
           />
 
           <CapabilityCard 
             icon={Globe} 
             title="Local SEO Engineering" 
             description="Optimizing business profiles to list accurately on search tools, map directories, and structuring background tags so search engines rank platforms higher."
-            delay={0.5} // Slight delay for stagger effect
+            delay={0.3} // Slight delay for stagger effect
           />
 
           <CapabilityCard 
             icon={ShieldCheck} 
             title="Full-Stack Integrations" 
             description="Connecting secure third-party checkout networks like Stripe seamlessly with backends like Supabase and PostgreSQL."
-            delay={0.8} // Longest delay
+            delay={0.45} // Longest delay
           />
 
         </div>
@@ -228,7 +228,7 @@ export default function App() {
                     <span key={tech} style={{ backgroundColor: '#1e293b', color: '#38bdf8', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem' }}>{tech}</span>
                   ))}
                 </div>
-                <a href="https://my-developer-portfolio-6mprcmxdp-armando-22.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: '500' }}>
+                <a href="https://my-developer-portfolio-lemon.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: '500' }}>
                   View Legacy Site <ExternalLink size={16} />
                 </a>
               </div>
