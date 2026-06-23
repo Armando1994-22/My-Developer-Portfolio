@@ -239,28 +239,53 @@ export default function App() {
       </section>
 
       {/* 4. CONTACT PANEL */}
-      <section id="contact" style={{ padding: '80px 20px', maxWidth: '600px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '15px' }}>Let's Start Your Project</h2>
-        <p style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px' }}>Need a custom booking setup or localized out-of-state SEO architecture? Send a message directly into my system.</p>
-        
-        <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div>
-            <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Your Name</label>
-            <input type="text" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#111827', border: '1px solid #1e293b', color: '#fff', fontSize: '1rem' }} />
-          </div>
-          <div>
-            <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Email Address</label>
-            <input type="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#111827', border: '1px solid #1e293b', color: '#fff', fontSize: '1rem' }} />
-          </div>
-          <div>
-            <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Project Specifications</label>
-            <textarea rows="5" required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#111827', border: '1px solid #1e293b', color: '#fff', fontSize: '1rem', resize: 'vertical' }} placeholder="Tell me about your business goals..."></textarea>
-          </div>
-          <button type="submit" disabled={isSubmitting} style={{ backgroundColor: '#2563eb', color: '#fff', padding: '14px', borderRadius: '8px', border: 'none', fontSize: '1rem', fontWeight: '600', cursor: isSubmitting ? 'not-allowed' : 'pointer', transition: '0.3s' }}>
-            {isSubmitting ? 'Transmitting...' : 'Send Message'}
-          </button>
-        </form>
-      </section>
+                  <section id="contact" style={{ padding: '60px 15px', maxWidth: '600px', margin: '0 auto', boxSizing: 'border-box' }}>
+  <h2 style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '15px' }}>Let's Start Your Project</h2>
+  <p style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px', fontSize: '0.95rem', lineHeight: '1.5' }}>
+    Need a custom booking setup or localized out-of-state SEO architecture? Send a message directly into my system.
+  </p>
+  
+  <form onSubmit={handleContactSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', boxSizing: 'border-box' }}>
+    <div style={{ width: '100%', boxSizing: 'border-box' }}>
+      <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Your Name</label>
+      <input 
+        type="text" 
+        required 
+        value={formData.name} 
+        onChange={e => setFormData({...formData, name: e.target.value})} 
+        style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#111827', border: '1px solid #1e293b', color: '#fff', fontSize: '1rem', boxSizing: 'border-box' }} 
+      />
+    </div>
+    <div style={{ width: '100%', boxSizing: 'border-box' }}>
+      <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Email Address</label>
+      <input 
+        type="email" 
+        required 
+        value={formData.email} 
+        onChange={e => setFormData({...formData, email: e.target.value})} 
+        style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#111827', border: '1px solid #1e293b', color: '#fff', fontSize: '1rem', boxSizing: 'border-box' }} 
+      />
+    </div>
+    <div style={{ width: '100%', boxSizing: 'border-box' }}>
+      <label style={{ display: 'block', marginBottom: '8px', fontSize: '0.9rem', color: '#94a3b8' }}>Project Specifications</label>
+      <textarea 
+        rows="5" 
+        required 
+        value={formData.message} 
+        onChange={e => setFormData({...formData, message: e.target.value})} 
+        style={{ width: '100%', padding: '12px', borderRadius: '8px', backgroundColor: '#111827', border: '1px solid #1e293b', color: '#fff', fontSize: '1rem', resize: 'vertical', boxSizing: 'border-box' }} 
+        placeholder="Tell me about your business goals..."
+      ></textarea>
+    </div>
+    <button 
+      type="submit" 
+      disabled={isSubmitting} 
+      style={{ width: '100%', backgroundColor: '#2563eb', color: '#fff', padding: '14px', borderRadius: '8px', border: 'none', fontSize: '1rem', fontWeight: '600', cursor: isSubmitting ? 'not-allowed' : 'pointer', transition: '0.3s', boxSizing: 'border-box' }}
+    >
+      {isSubmitting ? 'Transmitting...' : 'Send Message'}
+    </button>
+  </form>
+</section>
 
     </div>
   )
