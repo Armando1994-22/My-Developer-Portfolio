@@ -7,7 +7,6 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// Custom hook to detect when elements enter the screen
 function useScrollReveal() {
   const [hasRevealed, setHasRevealed] = useState(false);
   const elementRef = useRef(null);
@@ -33,7 +32,6 @@ function useScrollReveal() {
   return [elementRef, hasRevealed];
 }
 
-// Reusable card component that slides in dynamically
 function CapabilityCard({ icon: Icon, title, description, delay }) {
   const [ref, isVisible] = useScrollReveal();
 
@@ -45,7 +43,6 @@ function CapabilityCard({ icon: Icon, title, description, delay }) {
         padding: '30px', 
         borderRadius: '12px', 
         border: '1px solid #1e293b',
-        // Animation CSS states
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
         transition: `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`
@@ -90,57 +87,119 @@ export default function App() {
       <header style={{ 
   display: 'flex', 
   flexDirection: 'row', 
-  flexWrap: 'wrap', 
-  alignItems: 'flex-start', // Changed to top-align the columns
+  flexWrap: 'wrap-reverse', 
+  alignItems: 'center',
   justifyContent: 'center', 
-  gap: '50px',
+  gap: '60px',
   maxWidth: '1200px',
   margin: '0 auto',
-  padding: '120px 20px 80px', 
-  borderBottom: '1px solid #1e293b' 
+  padding: '100px 20px 80px', 
+  borderBottom: '1px solid #1e293b',
+  position: 'relative' 
 }}>
+
+  <div style={{
+      position: 'absolute',
+      top: '10%',
+      left: '15%',
+      width: '300px',
+      height: '300px',
+      background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0,0,0,0) 70%)',
+      zIndex: 0,
+      pointerEvents: 'none'
+    }}/>
+
   {/* Left Column: Image & Personal Bio */}
-  <div style={{ flex: '1 1 350px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+  <div style={{ 
+    flex: '1 1 350px', 
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'center', 
+    textAlign: 'center',
+    backgroundColor: '#111827',
+    padding: '30px 40px',
+    borderRadius: '34px', 
+    border: '1px solid #1e293b',
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+    zIndex: 1 
+    }}>
+      <div style={{
+        position: 'relative',
+        marginBottom: '24px',
+      }}
+      >
+    <div style={{
+      position: 'absolute',
+      top: '-4px', left: '-4px', right: '-4px', bottom: '-4px',
+      borderRadius: '50px',
+      background: 'linear-gradient(135deg, #38bde1, #818cc9)',
+      zIndex: -1
+    }}
+    />
     <img 
       src="https://scontent-sea5-1.xx.fbcdn.net/v/t39.30808-6/511296655_9987679384613351_2192164889376400409_n.jpg?stp=cp6_dst-jpg_tt6&cstp=mx1536x2048&ctp=s1536x2048&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3lSVk-JE_JgQ7kNvwEyzFDQ&_nc_oc=AdoSsmNrLHuLrlMg70N1Sa-QluWBnIDAaLPilhK35zO2Xhx_-j7-urhoZLryRBttxSat4ksrowqaTbOQ4nIff4nY&_nc_zt=23&_nc_ht=scontent-sea5-1.xx&_nc_gid=yq8UDCypYrm_2FJaT-qxIQ&_nc_ss=7b2a8&oh=00_Af-7_I7z97qdCyXnIjAXf56o3e24OPJb09gD-s_x41zvmQ&oe=6A3FC104" // Replace with your image URL
       alt="Full-Stack Developer Portrait" 
       style={{ 
         width: '100%', 
-        maxWidth: '300px', // Slightly smaller to balance the text below
-        height: 'auto', 
+        maxWidth: '270px',
+        height: 'auto',
+        objectFit: 'cover', 
         borderRadius: '50%', 
-        border: '4px solid #1e293b',
-        boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)',
-        marginBottom: '20px' // Space between image and bio
+        display: 'block'
       }} 
     />
+    </div>
     {/* Personal Bio Under Image */}
-    <p style={{ fontSize: '1rem', color: '#94a3b8', lineHeight: '1.5', maxWidth: '300px', margin: '0' }}>
+    <p style={{ fontSize: '.95rem', color: '#94a3b8', lineHeight: '1.6', maxWidth: '300px', margin: '0', fontStyle: 'italic' }}>
       "I build websites and navigate the digital world, but my favorite trails are the ones in the high terrains. Off-screen, you'll find me on the soccer field or enjoying a park sunset with my fiancée and our two faithful pups."
     </p>
   </div>
 
   {/* Right Column: Professional Headline & Core Info */}
-  <div style={{ flex: '1 1 500px', textAlign: 'left', paddingTop: '100px' }}>
+  <div style={{ flex: '1 1 500px', textAlign: 'left', zIndex: 1 }}>
+    <div style={{
+      display: 'inline-block',
+      padding: '6px 14px',
+      borderRadius: '20px',
+      backgroundColor: 'rgba(56, 189, 248, 0.1)',
+      border: '1px solid rgba(56, 189, 248, 0.2)',
+      color: '#38bdf8',
+      fontSize: '0.75rem',
+      fontWeight: '600px',
+      textTransform: 'uppercase',
+      letterSpacing: '0.05em',
+      marginBottom: '16px'
+    }}>
+      Open for Opportunities
+    </div>
     <h1 style={{ 
-      fontSize: '3rem', 
+      fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', 
       fontWeight: '800', 
       marginBottom: '20px', 
       background: 'linear-gradient(90deg, #38bdf8, #818cf8)', 
       WebkitBackgroundClip: 'text', 
       WebkitTextFillColor: 'transparent',
-      display: 'inline-block',
-      lineHeight: '1.3',
-      paddingBottom: '10px'
+      display: 'block',
+      lineHeight: '1.2',
+      letterSpacing: '-0.02em'
     }}>
       Full-Stack Web Developer
     </h1>
     
-    <p style={{ fontSize: '1.25rem', color: '#cbd5e1', lineHeight: '1.6', marginBottom: '30px' }}>
+    <p style={{ fontSize: '1.15rem', color: '#cbd5e1', lineHeight: '1.6', marginBottom: '36px', maxWidth: '540px' }}>
       Building secure, hour-precise booking engines, responsive client storefronts, and optimized database architectures.
     </p>
     
-    <a href="#contact" style={{ backgroundColor: '#2563eb', color: '#fff', padding: '12px 24px', borderRadius: '8px', textDecoration: 'none', fontWeight: '600', transition: 'background-color 0.3s ease' }}>
+    <a href="#contact" style={{ 
+      display: 'inline-block',
+      backgroundColor: '#2563eb', 
+      color: '#fff', 
+      padding: '14px 28px', 
+      borderRadius: '8px', 
+      textDecoration: 'none', 
+      fontWeight: '600', 
+      boxShadow: '0 4px 14px rgba(37, 99, 235, 0.6)',
+      transition: '0.2s'}}>
       Let's Build Something Great
     </a>
   </div>
@@ -155,88 +214,167 @@ export default function App() {
             icon={Layers} 
             title="Custom Booking Platforms" 
             description="Hour-precise calendars built with robust database exclusion rules to completely block multi-tenant scheduling collisions."
-            delay={0.15} // First card reveals instantly
+            delay={0.15}
           />
 
           <CapabilityCard 
             icon={Globe} 
             title="Local SEO Engineering" 
             description="Optimizing business profiles to list accurately on search tools, map directories, and structuring background tags so search engines rank platforms higher."
-            delay={0.3} // Slight delay for stagger effect
+            delay={0.3} 
           />
 
           <CapabilityCard 
             icon={ShieldCheck} 
             title="Full-Stack Integrations" 
             description="Connecting secure third-party checkout networks like Stripe seamlessly with backends like Supabase and PostgreSQL."
-            delay={0.45} // Longest delay
+            delay={0.45} 
           />
 
         </div>
       </section>
 
       {/* 3. CASE STUDIES GRID PANEL */}
-      <section style={{ backgroundColor: '#0f172a', padding: '80px 20px', borderTop: '1px solid #1e293b', borderBottom: '1px solid #1e293b' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '50px', fontWeight: '700' }}>Featured Projects & Apps</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '40px', justifyContent: 'center', alignItems: 'center' }}>
-            
-            {/* PROJECT 1: RENTAL APPLICATION */}
-            <div style={{ backgroundColor: '#111827', borderRadius: '12px', overflow: 'hidden', border: '1px solid #1e293b' }}>
-              <div style={{ padding: '25px' }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '10px', fontWeight: '600' }}>Kenji Auto Rentals</h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                  Full-stack rental hub featuring safe user authentication pathways, conditional home-delivery parameters, and strict backend booking protections.
-                </p>
-                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                  {['React', 'Vite', 'Supabase', 'PostgreSQL'].map(tech => (
-                    <span key={tech} style={{ backgroundColor: '#1e293b', color: '#38bdf8', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem' }}>{tech}</span>
-                  ))}
-                </div>
-                <a href="https://final-web-dev-project-sage.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: '500' }}>
-                  Launch App Demo <ExternalLink size={16} />
-                </a>
-              </div>
-            </div>
+      <section style={{ backgroundColor: '#0b0f19', padding: '100px 20px', borderTop: '1px solid #1e293b', borderBottom: '1px solid #1e293b' }}>
+  <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    
+    {/* Section Header with Gradient Underline Accent */}
+    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+      <h2 style={{ fontSize: '2.25rem', marginBottom: '12px', fontWeight: '800', color: '#fff', letterSpacing: '-0.02em' }}>
+        Featured Projects & Apps
+      </h2>
+      <div style={{ width: '60px', height: '4px', background: 'linear-gradient(90deg, #38bdf8, #818cf8)', borderRadius: '2px', margin: '0 auto' }}></div>
+    </div>
 
-            {/* PROJECT 2: COSMETICS SALON APPLICATION */}
-            <div style={{ backgroundColor: '#111827', borderRadius: '12px', overflow: 'hidden', border: '1px solid #1e293b' }}>
-              <div style={{ padding: '25px' }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '10px', fontWeight: '600' }}>Cosmetics & Salon Storefront</h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                  Sleek retail display featuring fast client category sorting filters, relational database records for individual stylists, and a responsive shopping checkout drawer.
-                </p>
-                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                  {['React 19', 'Vite', 'Dynamic Arrays', 'CSS Grid'].map(tech => (
-                    <span key={tech} style={{ backgroundColor: '#1e293b', color: '#38bdf8', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem' }}>{tech}</span>
-                  ))}
-                </div>
-                <span style={{ color: '#a1a1aa', display: 'inline-flex', alignItems: 'center', gap: '5px', fontSize: '0.9rem', fontStyle: 'italic' }}>
-                  Development Phase
-                </span>
-              </div>
-            </div>
-            
-            <div style={{ backgroundColor: '#111827', borderRadius: '12px', overflow: 'hidden', border: '1px solid #1e293b' }}>
-              <div style={{ padding: '25px' }}>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '10px', fontWeight: '600' }}>Legacy Portfolio</h3>
-                <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                  My previous personal archive showcasing my early design foundations, original interactive layouts, and core frontend engineering milestones.
-                </p>
-                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
-                  {['HTML5', 'CSS3', 'JavaScript', 'Responsive'].map(tech => (
-                    <span key={tech} style={{ backgroundColor: '#1e293b', color: '#38bdf8', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem' }}>{tech}</span>
-                  ))}
-                </div>
-                <a href="https://my-developer-portfolio-lemon.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: '500' }}>
-                  View Legacy Site <ExternalLink size={16} />
-                </a>
-              </div>
-            </div>
+    {/* Project Grid */}
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', justifyContent: 'center' }}>
+      
+      {/* PROJECT 1: RENTAL APPLICATION */}
+      <div 
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-8px)';
+          e.currentTarget.style.boxShadow = '0 30px 40px -10px rgba(56, 189, 248, 0.2)';
+          e.currentTarget.style.borderColor = '#38bdf8';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.4)';
+          e.currentTarget.style.borderColor = '#1e293b';
+        }}
+        style={{ 
+          backgroundColor: '#111827', 
+          borderRadius: '16px', 
+          overflow: 'hidden', 
+          border: '1px solid #1e293b',
+          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.4)',
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease'
+        }}
+      >
+        <div style={{ height: '4px', width: '100%', background: 'linear-gradient(90deg, #38bdf8, #818cf8)' }}></div>
+        <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <h3 style={{ fontSize: '1.4rem', marginBottom: '12px', fontWeight: '700', color: '#fff' }}>Kenji Auto Rentals</h3>
+          <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '24px', flexGrow: 1 }}>
+            Full-stack rental hub featuring safe user authentication pathways, conditional home-delivery parameters, and strict backend booking protections.
+          </p>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
+            {['React', 'Vite', 'Supabase', 'PostgreSQL'].map(tech => (
+              <span key={tech} style={{ backgroundColor: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.2)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '500' }}>{tech}</span>
+            ))}
+          </div>
+          <a href="https://vercel.app" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#2563eb', color: '#fff', textAlign: 'center', padding: '12px', borderRadius: '8px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '600', fontSize: '0.95rem', boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)' }}>
+            Launch App Demo <ExternalLink size={16} />
+          </a>
+        </div>
+      </div>
 
+      {/* PROJECT 2: COSMETICS SALON APPLICATION */}
+      <div 
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-8px)';
+          e.currentTarget.style.boxShadow = '0 30px 40px -10px rgba(236, 72, 153, 0.2)';
+          e.currentTarget.style.borderColor = '#ec4899';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.4)';
+          e.currentTarget.style.borderColor = '#1e293b';
+        }}
+        style={{ 
+          backgroundColor: '#111827', 
+          borderRadius: '16px', 
+          overflow: 'hidden', 
+          border: '1px solid #1e293b',
+          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.4)',
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease'
+        }}
+      >
+        <div style={{ height: '4px', width: '100%', background: 'linear-gradient(90deg, #ec4899, #a855f7)' }}></div>
+        <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <h3 style={{ fontSize: '1.4rem', marginBottom: '12px', fontWeight: '700', color: '#fff' }}>Cosmetics & Salon Storefront</h3>
+          <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '24px', flexGrow: 1 }}>
+            Sleek retail display featuring fast client category sorting filters, relational database records for individual stylists, and a responsive shopping checkout drawer.
+          </p>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
+            {['React 19', 'Vite', 'Dynamic Arrays', 'CSS Grid'].map(tech => (
+              <span key={tech} style={{ backgroundColor: 'rgba(236, 72, 153, 0.1)', color: '#f472b6', border: '1px solid rgba(236, 72, 153, 0.2)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '500' }}>{tech}</span>
+            ))}
+          </div>
+          <div style={{ backgroundColor: '#1f2937', color: '#f472b6', border: '1px solid rgba(236, 72, 153, 0.3)', textAlign: 'center', padding: '12px', borderRadius: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '0.95rem', fontWeight: '600' }}>
+            Production Phase
           </div>
         </div>
-      </section>
+      </div>
+      
+      {/* PROJECT 3: LEGACY PORTFOLIO */}
+      <div 
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-8px)';
+          e.currentTarget.style.boxShadow = '0 30px 40px -10px rgba(16, 185, 129, 0.2)';
+          e.currentTarget.style.borderColor = '#10b981';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.4)';
+          e.currentTarget.style.borderColor = '#1e293b';
+        }}
+        style={{ 
+          backgroundColor: '#111827', 
+          borderRadius: '16px', 
+          overflow: 'hidden', 
+          border: '1px solid #1e293b',
+          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.4)',
+          display: 'flex',
+          flexDirection: 'column',
+          position: 'relative',
+          transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease'
+        }}
+      >
+        <div style={{ height: '4px', width: '100%', background: 'linear-gradient(90deg, #10b981, #06b6d4)' }}></div>
+        <div style={{ padding: '30px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+          <h3 style={{ fontSize: '1.4rem', marginBottom: '12px', fontWeight: '700', color: '#fff' }}>Legacy Portfolio</h3>
+          <p style={{ color: '#94a3b8', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '24px', flexGrow: 1 }}>
+            My previous personal archive showcasing my early design foundations, original interactive layouts, and core frontend engineering milestones.
+          </p>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
+            {['HTML5', 'CSS3', 'JavaScript', 'Responsive'].map(tech => (
+              <span key={tech} style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '500' }}>{tech}</span>
+            ))}
+          </div>
+          <a href="https://vercel.app" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#10b981', color: '#fff', textAlign: 'center', padding: '12px', borderRadius: '8px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '600', fontSize: '0.95rem', boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)' }}>
+            View Legacy Site <ExternalLink size={16} />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* 4. CONTACT PANEL */}
                   <section id="contact" style={{ padding: '60px 15px', maxWidth: '600px', margin: '0 auto', boxSizing: 'border-box' }}>
