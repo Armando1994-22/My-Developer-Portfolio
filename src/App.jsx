@@ -284,7 +284,7 @@ export default function App() {
               <span key={tech} style={{ backgroundColor: 'rgba(56, 189, 248, 0.1)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.2)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '500' }}>{tech}</span>
             ))}
           </div>
-          <a href="https://vercel.app" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#2563eb', color: '#fff', textAlign: 'center', padding: '12px', borderRadius: '8px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '600', fontSize: '0.95rem', boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)' }}>
+          <a href="https://final-web-dev-project-sage.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#2563eb', color: '#fff', textAlign: 'center', padding: '12px', borderRadius: '8px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '600', fontSize: '0.95rem', boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)' }}>
             Launch App Demo <ExternalLink size={16} />
           </a>
         </div>
@@ -366,7 +366,7 @@ export default function App() {
               <span key={tech} style={{ backgroundColor: 'rgba(16, 185, 129, 0.1)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.2)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.8rem', fontWeight: '500' }}>{tech}</span>
             ))}
           </div>
-          <a href="https://vercel.app" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#10b981', color: '#fff', textAlign: 'center', padding: '12px', borderRadius: '8px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '600', fontSize: '0.95rem', boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)' }}>
+          <a href="https://my-developer-portfolio-lemon.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: '#10b981', color: '#fff', textAlign: 'center', padding: '12px', borderRadius: '8px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '600', fontSize: '0.95rem', boxShadow: '0 4px 12px rgba(16, 185, 129, 0.3)' }}>
             View Legacy Site <ExternalLink size={16} />
           </a>
         </div>
