@@ -228,7 +228,7 @@ export default function App() {
                     <span key={tech} style={{ backgroundColor: '#1e293b', color: '#38bdf8', padding: '4px 10px', borderRadius: '4px', fontSize: '0.8rem' }}>{tech}</span>
                   ))}
                 </div>
-                <a href="my-developer-portfolio-lemon.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: '500' }}>
+                <a href="https://my-developer-portfolio-6mprcmxdp-armando-22.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ color: '#60a5fa', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px', fontWeight: '500' }}>
                   View Legacy Site <ExternalLink size={16} />
                 </a>
               </div>
