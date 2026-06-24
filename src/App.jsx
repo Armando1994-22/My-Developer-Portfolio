@@ -465,6 +465,35 @@ export default function App() {
     </button>
   </form>
 </section>
+ <footer style={{
+      backgroundColor: '#0b0f19',
+      borderTop: '1px solid #1e293b',
+      padding: '40px 20px',
+      textAlign: 'center',
+      fontSize: '0.85rem',
+      color: '#64748b'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        
+        {/* Copyright Notice */}
+        <p style={{ margin: '0 0 12px' }}>
+          &copy; {new Date().getFullYear()} Armando Aguirre. All rights reserved.
+        </p>
+
+        {/* Legal Disclaimer Box */}
+        <p style={{ 
+          maxWidth: '600px', 
+          margin: '0 auto', 
+          lineHeight: '1.6', 
+          color: '#475569' 
+        }}>
+          <strong>Privacy Notice:</strong> By submitting my contact form, you agree that your name, 
+          email, and project details are securely processed via Supabase solely to evaluate your request. 
+          Your information is strictly confidential and will never be shared, sold, or used for marketing.
+        </p>
+
+      </div>
+    </footer>
 
     </div>
   )
