@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { Layers, Globe, ShieldCheck, ExternalLink } from 'lucide-react';
-
+import { FaLinkedin } from 'react-icons/fa';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
@@ -202,7 +202,48 @@ export default function App() {
       transition: '0.2s'}}>
       Let's Build Something Great
     </a>
+    <div className="social-links" style={{
+      paddingTop: '40px',
+      display: 'flex',
+      gap: '16px',
+      alignItems: 'center',
+      color: '#cbd5e1'
+      }}> Let's Connect: 
+      <a 
+    href="https://linkedin.com" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    aria-label="LinkedIn Profile"
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '50px',
+      height: '50px',
+      borderRadius: '12px',
+      backgroundColor: '#111827',
+      border: '1px solid #1e293b',
+      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+      cursor: 'pointer',
+      transition: 'all 0.2s ease-in-out',
+    }}
+    // Inline hover effect simulations for React
+    onMouseEnter={(e) => {
+      e.currentTarget.style.borderColor = '#38bdf8';
+      e.currentTarget.style.boxShadow = '0 0 15px rgba(56, 189, 248, 0.4)';
+      e.currentTarget.firstChild.style.color = '#38bdf8';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.borderColor = '#1e293b';
+      e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+      e.currentTarget.firstChild.style.color = '#94a3b8';
+    }}
+  >
+    <FaLinkedin size={24} style={{ color: '#94a3b8', transition: 'color 0.2s ease' }} />
+  </a>
+    </div>
   </div>
+  
 </header>
 
       {/* 2. SERVICES & FREELANCE VALUE TIERS */}
