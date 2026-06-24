@@ -248,7 +248,7 @@ export default function App() {
 
       {/* 2. SERVICES & FREELANCE VALUE TIERS */}
       <section style={{ padding: '80px 20px', maxWidth: '1100px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '50px', fontWeight: '700' }}>Freelance Capabilities</h2>
+        <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '50px', fontWeight: '700', color: '#fff' }}>Freelance Capabilities</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
           
           <CapabilityCard 
@@ -419,7 +419,7 @@ export default function App() {
 
       {/* 4. CONTACT PANEL */}
                   <section id="contact" style={{ padding: '60px 15px', maxWidth: '600px', margin: '0 auto', boxSizing: 'border-box' }}>
-  <h2 style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '15px' }}>Let's Start Your Project</h2>
+  <h2 style={{ fontSize: '1.75rem', textAlign: 'center', marginBottom: '15px', color: '#fff' }}>Let's Start Your Project</h2>
   <p style={{ textAlign: 'center', color: '#94a3b8', marginBottom: '40px', fontSize: '0.95rem', lineHeight: '1.5' }}>
     Need a custom booking setup or localized out-of-state SEO architecture? Send a message directly into my system.
   </p>
